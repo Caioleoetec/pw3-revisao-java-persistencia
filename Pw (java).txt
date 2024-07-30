@@ -1,0 +1,19 @@
+Pw (java)
+front end => usuário
+	api => liga front e back end (vamos usar rest, não soap por ser mais complexo e dificil) => rest pode ser usada com qualquer linguagem
+backend (bd) => guarda
+
+docker => "maquina virtual simplificada"
+	=> manipula e modifica imagens através de containers
+docker hub => várias imagens (bancos, SISTEMA OPERACIONAL, ...)
+	=> local para baixar muitas imagens
+imagem docker => assim elas podem ser inicializados para um aplicativo, em que as configurações estão contidas na imagem
+
+docker compose => configura um arquivo, que atua como um script; apenas dê up no arquivo
+
+dbever
+
+properties
+jpa.show-sql =>
+
+hibernate.id.new_generator_mapping => faz com que a aplicação gere um id (se verdadeiro) ou 
