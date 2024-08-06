@@ -15,7 +15,7 @@ public class Post {
     @Id
     @Column(name = "ID_POST") //relaciona a propriedade com a coluna da tabela no banco de dados
     @GeneratedValue(strategy = GenerationType.IDENTITY) //define a estratégia para gerar o id de uma classe/tabela
-    private Long id;
+    private Long id; //Long é o ideal para o sql manager
     @Column(name = "TX_TITULO")
     private String titulo;
     @Column(name = "TX_CONTEUDO")
