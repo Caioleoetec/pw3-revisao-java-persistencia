@@ -3,8 +3,10 @@ package br.com.etechoracio.blog.controller;
 import br.com.etechoracio.blog.entity.Post;
 import br.com.etechoracio.blog.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,13 +21,16 @@ public class PostController {
     }
 
     @GetMapping("/{id}") //esse uso do @GetMapping define uma váriavel na URL; @PathVariable
-    public Post buscarPorId(@PathVariable Long id, @RequestBody String body){
-        Optional<Post> caixa = repository.findById(id);
-        if(!caixa.isEmpty()){
-            return caixa.get();
+    public ResponseEntity<Object> buscarPorId(@PathVariable Long id){
+        var resposta = repository.findById(id);
+        if(!resposta.isEmpty()){
+            return ResponseEntity.ok(resposta.get());
         }else {
-            return null;
+            return ResponseEntity.notFound().build();
         }
+        //ResponseEntity => configura a resposta do app
+        //              .ok(retorno) => deu certo e manda algo
+        //              .notFound().build() => não encontrado
     }
 }
 //classes controller "ouvem" requisições HTTP, para isso usamos o rest controller
